@@ -25,11 +25,12 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.5rem 5%;
-      background: rgba(10, 13, 20, 0.9);
+      background: rgba(10, 13, 20, 0.95);
       border-bottom: 1px solid #1e293b;
       position: sticky;
       top: 0;
       z-index: 100;
+      backdrop-filter: blur(8px);
     }
 
     .logo {
@@ -48,6 +49,7 @@
       text-decoration: none;
       margin-left: 2rem;
       transition: color 0.3s;
+      font-weight: 500;
     }
 
     nav a:hover {
@@ -98,23 +100,28 @@
       transform: translateY(-2px);
     }
 
-    /* Courses Section */
-    .courses-container {
+    /* Section Container */
+    .section-container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 4rem 1.5rem;
     }
 
     .section-title {
-      font-size: 2rem;
+      font-size: 2.2rem;
       margin-bottom: 2.5rem;
       text-align: center;
       color: #ffffff;
     }
 
+    .section-title span {
+      color: #00ff66;
+    }
+
+    /* Courses Grid */
     .course-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
     }
 
@@ -127,6 +134,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      cursor: pointer;
     }
 
     .course-card:hover {
@@ -144,9 +152,9 @@
       width: fit-content;
     }
 
-    .badge-beginner { background: rgba(16, 185, 129, 0.1); color: #10b981; }
-    .badge-intermediate { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
-    .badge-advanced { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+    .badge-beginner { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+    .badge-intermediate { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+    .badge-advanced { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
 
     .course-card h3 {
       font-size: 1.35rem;
@@ -160,6 +168,13 @@
       margin-bottom: 1.5rem;
     }
 
+    .course-action {
+      color: #00ff66;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
     .course-meta {
       display: flex;
       justify-content: space-between;
@@ -170,11 +185,135 @@
       color: #64748b;
     }
 
+    /* Modal / Popup Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 1rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #111827;
+      border: 1px solid #00ff66;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 650px;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 2rem;
+      position: relative;
+      box-shadow: 0 0 25px rgba(0, 255, 102, 0.2);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-size: 1.8rem;
+      color: #94a3b8;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: #00ff66;
+    }
+
+    .modal-title {
+      font-size: 1.8rem;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .syllabus-list {
+      list-style-type: none;
+      margin: 1.5rem 0;
+    }
+
+    .syllabus-list li {
+      background: #0a0d14;
+      border: 1px solid #1f2937;
+      padding: 0.8rem 1rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+    }
+
+    .syllabus-list li::before {
+      content: "✓";
+      color: #00ff66;
+      font-weight: bold;
+      margin-right: 0.8rem;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: #0f172a;
+      border-top: 1px solid #1e293b;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .contact-card {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 12px;
+      padding: 2.5rem;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .contact-card p {
+      color: #94a3b8;
+      margin-bottom: 1.5rem;
+    }
+
+    .email-box {
+      display: inline-block;
+      background: #0a0d14;
+      padding: 0.8rem 1.5rem;
+      border: 1px solid #00ff66;
+      border-radius: 8px;
+      color: #00ff66;
+      font-family: monospace;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      word-break: break-all;
+    }
+
+    .email-link {
+      color: #00ff66;
+      text-decoration: none;
+    }
+
+    .email-link:hover {
+      text-decoration: underline;
+    }
+
     /* Footer */
     footer {
       text-align: center;
       padding: 2rem;
-      border-top: 1px solid #1e293b;
       color: #64748b;
       font-size: 0.9rem;
     }
@@ -187,7 +326,6 @@
     <div class="logo">⚡ FAIZULLAH<span>SEC</span></div>
     <nav>
       <a href="#courses">Courses</a>
-      <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -195,22 +333,23 @@
   <!-- Hero Section -->
   <section class="hero">
     <h1>Learn Ethical Hacking with <span>Faizullah</span></h1>
-    <p>Master penetration testing, web application security, and network defense through practical, real-world labs.</p>
+    <p>Master penetration testing, web application security, and network defense through practical, hands-on learning.</p>
     <a href="#courses" class="btn-primary">Explore Courses</a>
   </section>
 
   <!-- Courses Grid -->
-  <main class="courses-container" id="courses">
-    <h2 class="section-title">Featured Hacking Courses</h2>
+  <main class="section-container" id="courses">
+    <h2 class="section-title">Featured <span>Learning Courses</span></h2>
     
     <div class="course-grid">
       
       <!-- Course 1 -->
-      <div class="course-card">
+      <div class="course-card" onclick="openCourseModal()">
         <div>
           <span class="badge badge-beginner">Beginner</span>
           <h3>Ethical Hacking Fundamentals</h3>
-          <p>Learn networking basics, Linux CLI, reconnaissance, and setting up your first Kali Linux virtual machine lab.</p>
+          <p>Learn networking basics, Linux commands, reconnaissance, and setting up your Kali Linux virtual environment.</p>
+          <div class="course-action">Click to Review Syllabus & Details →</div>
         </div>
         <div class="course-meta">
           <span>⏱️ 12 Modules</span>
@@ -236,7 +375,7 @@
         <div>
           <span class="badge badge-advanced">Advanced</span>
           <h3>Network Defense & Wireless Exploitation</h3>
-          <p>Master Wi-Fi hacking protocols, packet analysis with Wireshark, and network traffic interception strategies.</p>
+          <p>Master Wi-Fi hacking protocols, packet analysis with Wireshark, and network traffic interception techniques.</p>
         </div>
         <div class="course-meta">
           <span>⏱️ 15 Modules</span>
@@ -247,10 +386,79 @@
     </div>
   </main>
 
+  <!-- Course Syllabus Modal -->
+  <div class="modal-overlay" id="courseModal">
+    <div class="modal-card">
+      <span class="close-btn" onclick="closeCourseModal()">&times;</span>
+      <span class="badge badge-beginner">Beginner Level</span>
+      <h2 class="modal-title">Ethical Hacking Fundamentals</h2>
+      <p style="color: #94a3b8;">Instructor: Faizullah</p>
+      
+      <hr style="border-color: #1f2937; margin: 1rem 0;" />
+
+      <h3>Course Overview</h3>
+      <p style="color: #cbd5e1; font-size: 0.95rem; margin-top: 0.5rem;">
+        This course is designed to take you from absolute zero to executing your first controlled penetration test safely. You will learn core networking, OSINT (Open Source Intelligence), Linux CLI mastery, and lab setup.
+      </p>
+
+      <h3 style="margin-top: 1.5rem;">What You Will Learn (Syllabus)</h3>
+      <ul class="syllabus-list">
+        <li>Module 1: Introduction to Cybersecurity & Ethics</li>
+        <li>Module 2: Setting up Kali Linux & VirtualBox</li>
+        <li>Module 3: Essential Linux Command Line & Bash Scripting</li>
+        <li>Module 4: Computer Networking Fundamentals (TCP/IP, OSI)</li>
+        <li>Module 5: Passive & Active Reconnaissance (Nmap, Wireshark)</li>
+        <li>Module 6: Vulnerability Scanning & Risk Assessment</li>
+        <li>Module 7: Basic Exploitation with Metasploit Framework</li>
+        <li>Module 8: Final Practical Exam & Certification</li>
+      </ul>
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="mailto:faizullahadel48@gmail.com?subject=Enrollment Request: Ethical Hacking Fundamentals" class="btn-primary">Enroll via Email</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="section-container">
+      <h2 class="section-title">Get In <span>Touch</span></h2>
+      <div class="contact-card">
+        <h3>Have Questions or Want to Enroll?</h3>
+        <p>Feel free to reach out for course inquiries, mentorship, or cybersecurity consultations.</p>
+        <div class="email-box">
+          📧 <a href="mailto:faizullahadel48@gmail.com" class="email-link">faizullahadel48@gmail.com</a>
+        </div>
+        <div>
+          <a href="mailto:faizullahadel48@gmail.com" class="btn-primary">Send an Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer>
     <p>&copy; 2026 Learn Ethical Hacking with Faizullah. All rights reserved.</p>
   </footer>
+
+  <!-- JavaScript for Interactive Review Popup -->
+  <script>
+    function openCourseModal() {
+      document.getElementById('courseModal').classList.add('active');
+    }
+
+    function closeCourseModal() {
+      document.getElementById('courseModal').classList.remove('active');
+    }
+
+    // Close modal when clicking outside the card
+    window.onclick = function(event) {
+      const modal = document.getElementById('courseModal');
+      if (event.target === modal) {
+        closeCourseModal();
+      }
+    }
+  </script>
 
 </body>
 </html>
